@@ -16,6 +16,10 @@ class SimplificatorService:
 
         try:
             response = requests.post(URL_DATABRICK, headers=HEADER_DATABRICK, data=json.dumps(prompt))
+            if response.status_code != 200:
+                return {
+                    "message": "Sin permisos para acceder al modelo"
+                    }
             response_json = response.json()
         except Exception as e:
             return {

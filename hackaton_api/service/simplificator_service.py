@@ -2,6 +2,7 @@
 from hackaton_api.config.config import HEADER_DATABRICK, URL_DATABRICK
 import requests
 import json
+import copy
 
 class SimplificatorService:
     def __init__(self, prompt, text):
@@ -11,7 +12,7 @@ class SimplificatorService:
         self.headers = HEADER_DATABRICK
     
     def simplify(self):
-        prompt = self.prompt_model.copy()
+        prompt = copy.deepcopy(self.prompt_model)
         prompt["messages"].append({"role": "user", "content": self.text})
 
         try:

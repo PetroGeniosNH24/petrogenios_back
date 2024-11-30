@@ -1,1 +1,1 @@
-waitress-serve --host 127.0.0.1 hackaton_entrypoint:app
+waitress-serve --host 0.0.0.0 hackaton_entrypoint:app
